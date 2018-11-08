@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>RoboProjekt</title><link href="https://roboprojekt.pyladies.cz/" rel="alternate"></link><link href="https://roboprojekt.pyladies.cz/feed.xml" rel="self"></link><id>https://roboprojekt.pyladies.cz/</id><updated>2018-11-06T18:05:00+01:00</updated><entry><title>Pátý sraz</title><link href="https://roboprojekt.pyladies.cz/paty-sraz-enum-dataclasses" rel="alternate"></link><published>2018-10-30T18:00:00+01:00</published><updated>2018-11-06T09:58:00+01:00</updated><author><name>Iveta Česalová</name></author><id>tag:roboprojekt.pyladies.cz,2018-10-30:/paty-sraz-enum-dataclasses</id><summary type="html">&lt;div&gt;&lt;p&gt;Z předminulé hodiny s Petrem jsme měly za úkol vytvořit slovník políček (STAV = slovník políček klíč: (x, y) hodnota: seznam efektů) a vykreslit v Pygletu mapu s jednou vrstvou bez otáčení prvků. Jelikož spousta z nás s tím měla problémy, probrali jsme na začátku srazu krok po kroku jak na to.
+Na githubu byly nahrané dvě verze kódu, od Terky a Karoliny, které úkol zvládly. Zvolili jsme ponechat &lt;a href="https://github.com/PyLadiesCZ/roboprojekt/blob/35a98aa967386d82a4dbca23a0ade65cc8b96767/karolina_state.py"&gt;Karolinin kód&lt;/a&gt;.
+Postupně jsme procházely, co je v kódu a Petr zmínil, co je třeba opravit (sjednotit terminologii, pojmenování proměnných, správně přeložit do angličtiny, stejně jako komentáře…)&lt;/p&gt;
+&lt;p&gt;A nastala otázka - Co dál? Jak si rozdělíme úkoly?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Načíst mapu s více vrstvami&lt;/li&gt;
+&lt;li&gt;Načíst mapu s otočenými políčky&lt;/li&gt;
+&lt;li&gt;Napsat testy&lt;/li&gt;
+&lt;li&gt;Celý dosavadní kód rozdělit na jednotlivé funkce&lt;/li&gt;
+&lt;li&gt;Popisek základního repozitáře v Githubu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Důležitou věcí, jak pokračovat v našem projektu je jeho rozdělení na 4 moduly:
+&lt;strong&gt;Backend&lt;/strong&gt; – načte mapu, tedy náš slovník Stav, &lt;strong&gt;Frontend&lt;/strong&gt; – vykreslí mapu, &lt;strong&gt;Game&lt;/strong&gt; – spustí hru, &lt;strong&gt;Testy&lt;/strong&gt; – vyzkouší, jestli funguje, co je v backendu.
+Až budou tyto moduly hotové, smažeme původní script  kde je celý kód.&lt;/p&gt;
+&lt;p&gt;V další části jsme se naučily něco nového, využití knihoven &lt;strong&gt;enum&lt;/strong&gt; a &lt;strong&gt;dataclasses&lt;/strong&gt;. Kdo neměl nainstalované, použil v příkazovém řádku následující příkazy:
+&lt;code&gt;python -m pip install dataclasses&lt;/code&gt;
+&lt;code&gt;python -m pip install enum&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Tyto knihovny nám umožní jednodušeji psát výčtové typy a datové třídy. Kdo nezná třídy, zopakuje si ze začátečnického kurzu &lt;a href="https://naucse.python.cz/course/pyladies/sessions/class/"&gt;Třídy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Poté jsme v editoru vytvořily nový soubor – demo.py kde máme třídu Direction, která dědí z výčtového typu enum.Enum. Definovaly jsme si funkci, která vyhodnotí směr (nejdřív se sečtou hodnoty a zbytek po dělení 4 =&amp;gt; získáme směr).&lt;/p&gt;
+&lt;p&gt;Dále následovalo vysvětlování modulu &lt;strong&gt;dataclasses&lt;/strong&gt;. Tento modul poskytuje dekorátor a funkce pro automatické přidávání generovaných speciálních metod, jako jsou &lt;code&gt;__init__()&lt;/code&gt; a &lt;code&gt;__repr__()&lt;/code&gt; do uživatelsky definovaných tříd. 
+Vytvořily jsme si soubor demo_dataclasses.py, kde máme třídu datového typu. Karta má jednotlivé vlastnosti (prioritu, efekt) určitého typu.
+Více informací o dataclasses &lt;a href="https://docs.python.org/3/library/dataclasses.html"&gt;zde&lt;/a&gt;
+Nevím, jak to pochopily ostatní, ale asi nám to Petr ještě dovysvětlí, k čemu to přesně slouží :-)&lt;/p&gt;
+&lt;p&gt;Do příště máme každá svůj úkol, rozdělení máme na githubu v záložce Issues.&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div&gt;&lt;p&gt;Z předminulé hodiny s Petrem jsme měly za úkol vytvořit slovník políček (STAV = slovník políček klíč: (x, y) hodnota: seznam efektů) a vykreslit v Pygletu mapu s jednou vrstvou bez otáčení prvků. Jelikož spousta z nás s tím měla problémy, probrali jsme na začátku srazu krok po kroku jak na to.
+Na githubu byly nahrané dvě verze kódu, od Terky a Karoliny, které úkol zvládly. Zvolili jsme ponechat &lt;a href="https://github.com/PyLadiesCZ/roboprojekt/blob/35a98aa967386d82a4dbca23a0ade65cc8b96767/karolina_state.py"&gt;Karolinin kód&lt;/a&gt;.
+Postupně jsme procházely, co je v kódu a Petr zmínil, co je třeba opravit (sjednotit terminologii, pojmenování proměnných, správně přeložit do angličtiny, stejně jako komentáře…)&lt;/p&gt;
+&lt;p&gt;A nastala otázka - Co dál? Jak si rozdělíme úkoly?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Načíst mapu s více vrstvami&lt;/li&gt;
+&lt;li&gt;Načíst mapu s otočenými políčky&lt;/li&gt;
+&lt;li&gt;Napsat testy&lt;/li&gt;
+&lt;li&gt;Celý dosavadní kód rozdělit na jednotlivé funkce&lt;/li&gt;
+&lt;li&gt;Popisek základního repozitáře v Githubu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Důležitou věcí, jak pokračovat v našem projektu je jeho rozdělení na 4 moduly:
+&lt;strong&gt;Backend&lt;/strong&gt; – načte mapu, tedy náš slovník Stav, &lt;strong&gt;Frontend&lt;/strong&gt; – vykreslí mapu, &lt;strong&gt;Game&lt;/strong&gt; – spustí hru, &lt;strong&gt;Testy&lt;/strong&gt; – vyzkouší, jestli funguje, co je v backendu.
+Až budou tyto moduly hotové, smažeme původní script  kde je celý kód.&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="moduly" src="./images/moduly.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;V další části jsme se naučily něco nového, využití knihoven &lt;strong&gt;enum&lt;/strong&gt; a &lt;strong&gt;dataclasses&lt;/strong&gt;. Kdo neměl nainstalované, použil v příkazovém řádku následující příkazy:
+&lt;code&gt;python -m pip install dataclasses&lt;/code&gt;
+&lt;code&gt;python -m pip install enum&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Tyto knihovny nám umožní jednodušeji psát výčtové typy a datové třídy. Kdo nezná třídy, zopakuje si ze začátečnického kurzu &lt;a href="https://naucse.python.cz/course/pyladies/sessions/class/"&gt;Třídy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Poté jsme v editoru vytvořily nový soubor – demo.py kde máme třídu Direction, která dědí z výčtového typu enum.Enum. Definovaly jsme si funkci, která vyhodnotí směr (nejdřív se sečtou hodnoty a zbytek po dělení 4 =&amp;gt; získáme směr).&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="demo" src="./images/demo.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;Dále následovalo vysvětlování modulu &lt;strong&gt;dataclasses&lt;/strong&gt;. Tento modul poskytuje dekorátor a funkce pro automatické přidávání generovaných speciálních metod, jako jsou &lt;code&gt;__init__()&lt;/code&gt; a &lt;code&gt;__repr__()&lt;/code&gt; do uživatelsky definovaných tříd. 
+Vytvořily jsme si soubor demo_dataclasses.py, kde máme třídu datového typu. Karta má jednotlivé vlastnosti (prioritu, efekt) určitého typu.
+Více informací o dataclasses &lt;a href="https://docs.python.org/3/library/dataclasses.html"&gt;zde&lt;/a&gt;
+Nevím, jak to pochopily ostatní, ale asi nám to Petr ještě dovysvětlí, k čemu to přesně slouží :-)&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="dataclasses" src="./images/dataclasses.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;Do příště máme každá svůj úkol, rozdělení máme na githubu v záložce Issues.&lt;/p&gt;&lt;/div&gt;</content></entry><entry><title>Čtvrtý sraz - GitHub</title><link href="https://roboprojekt.pyladies.cz/ctvrty-sraz-github" rel="alternate"></link><published>2018-10-23T18:05:00+02:00</published><updated>2018-11-06T18:05:00+01:00</updated><author><name>Hanka Střondalová</name></author><id>tag:roboprojekt.pyladies.cz,2018-10-23:/ctvrty-sraz-github</id><summary type="html">&lt;div&gt;&lt;p&gt;A jsme zpět. Co dnes? užitečný a u začátečníků respekt vzbuzující ... GIT... Abychom mohly naplno rozjet náš projekt, potřebujeme si naše kódy sdílet jako opravdové programátorky.&lt;/p&gt;
+&lt;p&gt;Tentokráte se hodiny ujal Jirka a začal to jak se patří a to malým opáčkem. V rychlosti jsme si s ním projely informace, které jsme už dříve obdržely jako účastnice základního kurzu, ale co si budeme povídat - připomenutí se hodí vždy: git init, git status, git add, git commit, pozor změna - git diff, užitečný git log, grafický pomocníček gitk. To hlavní, k čemu jsme dnes směřovaly, je spolupráce na GitHub.&lt;/p&gt;
+&lt;p&gt;Jirka nám vysvětloval pomalu a jistě (to abychom mu hned na začátku asi neutekly - nebo po něm něco rovnou nehodily :-)), že hlavními výhodami pro nás na GitHubu bude mergovaní našich výtvorů a nápadů. Každou větev (branch), kterou si uděláme a která bude obsahovat naše změny a nápady, prostřednictvím GitHubu někdo další zkontroluje a spojí, takže výsledek budeme mít každá k dispozici z pohodlí svého gauče.&lt;/p&gt;
+&lt;p&gt;Něco málo o GitHubu:
+Samotný repozitář nemáme pouze na svém počítači a tudíž je pravděpodobnost, že o něj s odchodem našich notebooků do křemíkového nebe, nepřijdeme.
+GitHub je možno využívat zdarma a samozřejmě i v placené verzi, což zatím nepotřebujeme. Je zde také možná spolupráce dvojího typu - "firemní" a "open source" - u firemní spolupráce máme větší práva a naše změny jsou zaslány rovnou do hlavního repozitáře (git push). U open source spolupráce se musí naše změny nejdříve zaslat do našeho forku (git push [mé jméno]) a odsud následně pomocí Pull Request bude začleněno do hlavního repozitáře.)&lt;/p&gt;
+&lt;p&gt;Jirka nám GitHub představil pomalu a po kouscích - vysvětlil nám, kde co v grafickém rozhraní najdeme a co to všechno znamená.&lt;/p&gt;
+&lt;p&gt;Jednou ze záložek jsou například Issues neboli úkoly: každý má své číslo, můžeme je filtrovat podle různých parametrů - podle autora, milestone či assignees, což nám říká, komu byl úkol přidělen.&lt;/p&gt;
+&lt;p&gt;Hlavním bodem večera byl "pull request". Projely jsme postupně celý proces krok po kroku, a abychom si to řádně vyzkoušely, vytvořily jsme si i testovací organizaci, kde se nemusíme bát, že něco pokazíme.&lt;/p&gt;
+&lt;p&gt;Pro “firemní” spolupráci:
+Nejdříve je třeba provést klonování repozitáře, které provedeme pomocí zeleného tlačítka Clone or Download - to je možné dvojím způsobem buď přes SSH key (programátorům se nechce pořád dokola přihlašovat, tak mají klíč :-)) a nebo přes HTTPS adresu, kterou budeme využívat my.
+HTTPS adresu zkopírujeme a do příkazové řádky zadáme git clone &lt;em&gt;https://github.com/název&lt;/em&gt;, tímto nám proběhne naklonování repozitáře k nám na počítač. Tam provádíme libovolné změny, o které se zrovna chceme podělit se svým týmem. Pomocí příkazů git status si zobrazíme stav souborů v repozitáři a cokoliv, co je nové, přidáme (git add) a okomentujeme změny (git commit). Klidně pro klid duše použijeme znovu příkaz git status. Po kontrole se  můžeme  posunout dál a poslat naši změnu na GitHub. Master branch (větev) je chráněna a taknemůžeme posílat naše změny napřímo, ale musíme si vytvořit větev vlastní. Použijeme příkaz git push origin src:dst (zdrojová:cílová větev), například git push origin master:pridani_vlajky. Následně jsme  vyzváni k přihlášení pomocí našeho uživatelského jména a hesla.&lt;/p&gt;
+&lt;p&gt;K vytvoření pull requestu je třeba otevřít web GitHubu a v našem repozitáři si zavolat na pomoc tlačítko Compare &amp;amp; Pull request&lt;/p&gt;
+&lt;p&gt;Zobrazí se prostor na naše poznámky a zároveň můžeme pull requestu přiřadit další parametry, můžeme určit uživatele, kteří pro nás udělají review aneb kontrolu změn.
+Dokončíme pull request (Create pull request) a čekáme na potvrzení, zda nedochází ke kolizi a kontrolu našich "assignees", které (kteří) následně potvrdí sloučení naší změny s cílovým repozitářem (confirm merge). Pokud bychom ještě něco ve svém repozitáři /na své větvi před mergem měnily, je dobré tyto změny ukládat do té samé větve.  Po definitivním sloučení větví je fajn po sobě uklízet a naši větev smazat.&lt;/p&gt;
+&lt;p&gt;Když se repozitář na GitHubu průběžně mění a chceme si aktualizovat i svůj repozitář v počítači, použijeme k tomu příkaz git pull.
+“Open source” přístup je trochu jiný. Začíná se tím, že dáme na GitHubu fork, do počítače si naklonujeme repozitář pomocí stejného příkazu git clone &lt;em&gt;https://github.com/název&lt;/em&gt;.
+V příkazové řádce se přepnu do naklonované složky a pomocí git remote add [me jmeno] &lt;em&gt;https://github.com/[me jmeno]/naklonovaný repozitář&lt;/em&gt;, si vytvoříme náš fork (stačí jednou na začátku). U sebe na počítači si vytvoříme novou větev a do ní ukládáme změny, obrázky, kódy a podle potřeby přidáváme do gitu (git add) a uděláme commit.
+Následuje git push [me jmeno] -  čímž se na mém githubu objeví možnost pull requestu a zbytek už znáte :-)&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div&gt;&lt;p&gt;A jsme zpět. Co dnes? užitečný a u začátečníků respekt vzbuzující ... GIT... Abychom mohly naplno rozjet náš projekt, potřebujeme si naše kódy sdílet jako opravdové programátorky.&lt;/p&gt;
+&lt;p&gt;Tentokráte se hodiny ujal Jirka a začal to jak se patří a to malým opáčkem. V rychlosti jsme si s ním projely informace, které jsme už dříve obdržely jako účastnice základního kurzu, ale co si budeme povídat - připomenutí se hodí vždy: git init, git status, git add, git commit, pozor změna - git diff, užitečný git log, grafický pomocníček gitk. To hlavní, k čemu jsme dnes směřovaly, je spolupráce na GitHub.&lt;/p&gt;
+&lt;p&gt;Jirka nám vysvětloval pomalu a jistě (to abychom mu hned na začátku asi neutekly - nebo po něm něco rovnou nehodily :-)), že hlavními výhodami pro nás na GitHubu bude mergovaní našich výtvorů a nápadů. Každou větev (branch), kterou si uděláme a která bude obsahovat naše změny a nápady, prostřednictvím GitHubu někdo další zkontroluje a spojí, takže výsledek budeme mít každá k dispozici z pohodlí svého gauče.&lt;/p&gt;
+&lt;p&gt;Něco málo o GitHubu:
+Samotný repozitář nemáme pouze na svém počítači a tudíž je pravděpodobnost, že o něj s odchodem našich notebooků do křemíkového nebe, nepřijdeme.
+GitHub je možno využívat zdarma a samozřejmě i v placené verzi, což zatím nepotřebujeme. Je zde také možná spolupráce dvojího typu - "firemní" a "open source" - u firemní spolupráce máme větší práva a naše změny jsou zaslány rovnou do hlavního repozitáře (git push). U open source spolupráce se musí naše změny nejdříve zaslat do našeho forku (git push [mé jméno]) a odsud následně pomocí Pull Request bude začleněno do hlavního repozitáře.)&lt;/p&gt;
+&lt;p&gt;Jirka nám GitHub představil pomalu a po kouscích - vysvětlil nám, kde co v grafickém rozhraní najdeme a co to všechno znamená.&lt;/p&gt;
+&lt;p&gt;Jednou ze záložek jsou například Issues neboli úkoly: každý má své číslo, můžeme je filtrovat podle různých parametrů - podle autora, milestone či assignees, což nám říká, komu byl úkol přidělen.&lt;/p&gt;
+&lt;p&gt;Hlavním bodem večera byl "pull request". Projely jsme postupně celý proces krok po kroku, a abychom si to řádně vyzkoušely, vytvořily jsme si i testovací organizaci, kde se nemusíme bát, že něco pokazíme.&lt;/p&gt;
+&lt;p&gt;Pro “firemní” spolupráci:
+Nejdříve je třeba provést klonování repozitáře, které provedeme pomocí zeleného tlačítka Clone or Download - to je možné dvojím způsobem buď přes SSH key (programátorům se nechce pořád dokola přihlašovat, tak mají klíč :-)) a nebo přes HTTPS adresu, kterou budeme využívat my.
+HTTPS adresu zkopírujeme a do příkazové řádky zadáme git clone &lt;em&gt;https://github.com/název&lt;/em&gt;, tímto nám proběhne naklonování repozitáře k nám na počítač. Tam provádíme libovolné změny, o které se zrovna chceme podělit se svým týmem. Pomocí příkazů git status si zobrazíme stav souborů v repozitáři a cokoliv, co je nové, přidáme (git add) a okomentujeme změny (git commit). Klidně pro klid duše použijeme znovu příkaz git status. Po kontrole se  můžeme  posunout dál a poslat naši změnu na GitHub. Master branch (větev) je chráněna a taknemůžeme posílat naše změny napřímo, ale musíme si vytvořit větev vlastní. Použijeme příkaz git push origin src:dst (zdrojová:cílová větev), například git push origin master:pridani_vlajky. Následně jsme  vyzváni k přihlášení pomocí našeho uživatelského jména a hesla.&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="master - pridani_vlajky" src="./images/kod.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;K vytvoření pull requestu je třeba otevřít web GitHubu a v našem repozitáři si zavolat na pomoc tlačítko Compare &amp;amp; Pull request&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="Compare &amp;amp; Pull request" src="./images/comparepull.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;Zobrazí se prostor na naše poznámky a zároveň můžeme pull requestu přiřadit další parametry, můžeme určit uživatele, kteří pro nás udělají review aneb kontrolu změn.
+Dokončíme pull request (Create pull request) a čekáme na potvrzení, zda nedochází ke kolizi a kontrolu našich "assignees", které (kteří) následně potvrdí sloučení naší změny s cílovým repozitářem (confirm merge). Pokud bychom ještě něco ve svém repozitáři /na své větvi před mergem měnily, je dobré tyto změny ukládat do té samé větve.  Po definitivním sloučení větví je fajn po sobě uklízet a naši větev smazat.&lt;/p&gt;
+&lt;p&gt;Když se repozitář na GitHubu průběžně mění a chceme si aktualizovat i svůj repozitář v počítači, použijeme k tomu příkaz git pull.
+“Open source” přístup je trochu jiný. Začíná se tím, že dáme na GitHubu fork, do počítače si naklonujeme repozitář pomocí stejného příkazu git clone &lt;em&gt;https://github.com/název&lt;/em&gt;.
+V příkazové řádce se přepnu do naklonované složky a pomocí git remote add [me jmeno] &lt;em&gt;https://github.com/[me jmeno]/naklonovaný repozitář&lt;/em&gt;, si vytvoříme náš fork (stačí jednou na začátku). U sebe na počítači si vytvoříme novou větev a do ní ukládáme změny, obrázky, kódy a podle potřeby přidáváme do gitu (git add) a uděláme commit.
+Následuje git push [me jmeno] -  čímž se na mém githubu objeví možnost pull requestu a zbytek už znáte :-)&lt;/p&gt;&lt;/div&gt;</content></entry><entry><title>Třetí sraz - pokračujeme s UML a začínáme s grafikou</title><link href="https://roboprojekt.pyladies.cz/treti-sraz-pokracujeme-s-uml-a-zaciname-s-grafikou" rel="alternate"></link><published>2018-10-16T08:39:00+02:00</published><updated>2018-10-24T08:39:00+02:00</updated><author><name>Helena Olbertová</name></author><id>tag:roboprojekt.pyladies.cz,2018-10-16:/treti-sraz-pokracujeme-s-uml-a-zaciname-s-grafikou</id><summary type="html">&lt;div&gt;&lt;p&gt;V první části dvouhodinovky jsme se věnovaly aktivní týmové spolupráci při rozebírání &lt;a href="https://en.wikipedia.org/wiki/Class_diagram"&gt;diagramu tříd&lt;/a&gt; pro pohyb robotů, který máme rozdělaný už od minula. Poslední verzi nám Petr zase trošku zkorigoval a dál budeme na diagramu pracovat doma a příště. Aktuální diagram najdete tady:&lt;/p&gt;
+&lt;p&gt;V druhé části dvouhodinovky přišla na řadu tvorba grafiky. Zatímco vymýšlíme, jak se budou naše herní figurky hýbat, musíme jim také připravit herní podklad. K tomuto účelu používáme pro tvorbu vektorové grafiky &lt;a href="https://inkscape.org/"&gt;Inkscape&lt;/a&gt; a pro skládání dlaždic do mapy &lt;a href="https://www.mapeditor.org/"&gt;Tiled&lt;/a&gt; (ideálně verzi 1.2 a novější).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inkscape&lt;/strong&gt; jsme si nastavily všechny stejně.
+Soubor → Nastavení dokumentu (nebo Ctrl + Shift + D) → Zobrazovací jednotky a Jednotky plátna nastaveno na px → velikost 64px x 64px.&lt;/p&gt;
+&lt;p&gt;V tom stejném nastavení přidáme mřížku - třetí záložka Grids → nová čtvercová mřížka → Počátek X = 0, Počátek Y = 0, Mezery X = 1, Mezery Y = 1, Hlavní čára mřížky každých: 8&lt;/p&gt;
+&lt;p&gt;Prvně zkoušíme, jak se v Inkscape kreslí tužkou a vyplňuje obvod a obsah. Potom každá Pylady dostala za úkol nějaký typ dlaždice, celkově jsme zatím připravily tyhle typy dlaždic:
+wall, flag, starting square, laser, laser base, pusher, repair, hole, ground, conveyor belt 1, conveyor belt 2.&lt;/p&gt;
+&lt;p&gt;Všechny ukládáme ve vektorovém formátu SVG a navzájem si je sdílíme na Slacku, takže všechny máme k dispozici stejnou sadu dlaždic, kterou si ukládáme do složky Tiles. Nejsou to ještě konečné verze grafiky, ale už nám pomůžou orientačně rozložit mapu. Později budeme mít možnost je snadno nahradit nějakými více vychytanými s jednotnějším vzhledem.&lt;/p&gt;
+&lt;p&gt;Alternativně, protože na některých operačních systémech takto uložené soubory zlobí (vykreslují se v Tiled se špatnou velikostí), se mohou obrázky z Inkscape vyexportovat do PNG. V menu Soubor najdeme Export PNG Image a na zobrazené boční liště vybereme tlačítka Page a Export. Takto vyexportované soubory se jednoduše naimportují do Tiled dle návodu níže.&lt;/p&gt;
+&lt;p&gt;A teď hurá na druhý prográmek – &lt;strong&gt;Tiled&lt;/strong&gt;.
+Dáme si Soubor → New → New Map (Ctrl + N), kde nastavíme
+Orientace: ortogonální,
+Formát vrstvy dlaždic: CSV,
+Pořadí vykreslování dlaždic: Doprava a dolů,
+Velikost mapy – Fixed 12 x 12 dlaždic,
+Velikost dlaždice: 64 px x 64 px.
+Projekt uložíme s libovolným názvem a koncovkou &lt;a href="https://naucse.python.cz/course/pyladies/intro/json/"&gt;JSON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pokračujeme s importem našich dlaždic.
+Vpravo dole najdeme oddíl Sada dlaždic a stisknutím New Tileset pokračujeme na výběr názvu sady – dáváme „Robots“ a možnost Ze sady obrázků.
+Vpravo dole pod oddílem dlaždic klikáme na malinkou ikonu s klíčem, na popisku stojí Edit Tileset. To nám otevírá novou záložku, kde v horní liště klikneme na ikonku + s popiskem Přidání dlaždic. Najdeme adresu naší složky Tiles a označíme všechny obrázky dlaždic.
+Vracíme se do záložky s mapou a můžeme si trošku pohrát s naší první herní mapou. Z vektorové grafiky jsme získaly obrázky s průhledným pozadím a tak je můžeme pěkně vrstvit. Do spodní vrstvy se můžou dát třeba země, jáma, … Do další vrstvy další dlaždice typu zeď, posuvné pásy, lasery a podobně.
+Jednotlivé objekty je možné i libovolně otáčet.
+Náš výtvor můžeme nechat přes Soubor → Exportovat jako a nastavíme si typ JSON.&lt;/p&gt;
+&lt;p&gt;Další část lekce jsme věnovaly průzkumu mapového souboru JSON v textovém editoru.&lt;/p&gt;
+&lt;p&gt;Každý typ dlaždice má svoje ID – první má číslo 0 a je to abecedně název první dlaždice, další následují. V seznamu políček ale vidíme čísla typů dlaždic od 1, takže abecedně první typ dlaždice je v Tiled ID: 0 → v seznamu vidíme ID: 1.&lt;/p&gt;
+&lt;p&gt;Teď se můžeme podívat do organizace vrstev – v Layers máme tentokrát jenom jednu vrstvu. Každé políčko mapy má svoje souřadnice – čísla běží jako seznam z levého horního rohu mapy doprava a pak následuje další řádek.&lt;/p&gt;
+&lt;p&gt;Pokud máme komplikovanější mapu s více vrstvami a také otočenými dlaždicemi, můžeme v layers vidět více seznamů a v některých budou i veliká čísla, jako například 1610612738. To je číslo šestnáctkové soustavy. Rozluštit nám ho pomůže třeba Python přes příkaz hex(číslo).  &lt;/p&gt;
+&lt;p&gt;Máme pro první řádek mapy například políčka:&lt;/p&gt;
+&lt;p&gt;nic – dlaždice ID:1 (conveyor belt 2) – nic – ID 1 otočené doprava – nic - ID 1 otočené dolů – nic – ID 1 otočené doleva – nic - nic – nic- nic&lt;/p&gt;
+&lt;p&gt;Zápis vypadá takto&lt;/p&gt;
+&lt;p&gt;"data":[0, 2, 0, 2684354562, 0, 3221225474, 0, 1610612738, 0, 0, 0, 0 … a následují další řádky&lt;/p&gt;
+&lt;p&gt;zadáme do Pythonu:&lt;/p&gt;
+&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2684354562&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="nb"&gt;hex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'0xa0000002'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="mh"&gt;0xFFFFFFF&lt;/span&gt; &lt;span class="c1"&gt;# kouzelná formulka pro zjištění ID dlaždice&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# kouzelná formulka pro zjištění otočení&lt;/span&gt;
+&lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;S dalšími čísly dostáváme 12 a 6.&lt;/p&gt;
+&lt;p&gt;Takže otočení doprava v tomto případě je hodnota 10, dolů 12 a doleva 6.&lt;/p&gt;
+&lt;p&gt;A to bylo tentokrát vše.&lt;/p&gt;
+&lt;p&gt;Příští lekce se bude věnovat GITu s Jirkou, máme si zopakovat lekce &lt;a href="https://naucse.python.cz/course/pyladies/sessions/git/"&gt;Správa zdrojového kódu&lt;/a&gt; a &lt;a href="https://naucse.python.cz/course/pyladies/sessions/foss/"&gt;Spolupráce a Open-Source&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Za dva týdny bude následovat další lekce s Petrem, na kterou máme za úkol náš mapový podklad, prozatím s jednou vrstvou a bez otáčení prvků, uložit ve formátu JSON, naimportovat do Pythonu a mapu vykreslit v Pygletu.&lt;/p&gt;
+&lt;p&gt;A jak na to? Chceme načíst herní plán jako slovník políček.&lt;/p&gt;
+&lt;p&gt;STAV = slovník políček
+klíč: (x, y)
+hodnota: seznam efektů # ← číslo z JSON&lt;/p&gt;
+&lt;p&gt;Nahrávaná mapa má pouze 1 vrstvu, bez otáčení dlaždic.&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div&gt;&lt;p&gt;V první části dvouhodinovky jsme se věnovaly aktivní týmové spolupráci při rozebírání &lt;a href="https://en.wikipedia.org/wiki/Class_diagram"&gt;diagramu tříd&lt;/a&gt; pro pohyb robotů, který máme rozdělaný už od minula. Poslední verzi nám Petr zase trošku zkorigoval a dál budeme na diagramu pracovat doma a příště. Aktuální diagram najdete tady:&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;a href="./images/UML1.jpg" target="_blank" title="UML1"&gt;&lt;img alt="UML1" src="https://roboprojekt.pyladies.cz/images/thumbnails/UML1.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class="figure"&gt;&lt;a href="./images/UML2.jpg" target="_blank" title="UML2"&gt;&lt;img alt="UML2" src="https://roboprojekt.pyladies.cz/images/thumbnails/UML2.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;V druhé části dvouhodinovky přišla na řadu tvorba grafiky. Zatímco vymýšlíme, jak se budou naše herní figurky hýbat, musíme jim také připravit herní podklad. K tomuto účelu používáme pro tvorbu vektorové grafiky &lt;a href="https://inkscape.org/"&gt;Inkscape&lt;/a&gt; a pro skládání dlaždic do mapy &lt;a href="https://www.mapeditor.org/"&gt;Tiled&lt;/a&gt; (ideálně verzi 1.2 a novější).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inkscape&lt;/strong&gt; jsme si nastavily všechny stejně.
+Soubor → Nastavení dokumentu (nebo Ctrl + Shift + D) → Zobrazovací jednotky a Jednotky plátna nastaveno na px → velikost 64px x 64px.&lt;/p&gt;
+&lt;p&gt;V tom stejném nastavení přidáme mřížku - třetí záložka Grids → nová čtvercová mřížka → Počátek X = 0, Počátek Y = 0, Mezery X = 1, Mezery Y = 1, Hlavní čára mřížky každých: 8&lt;/p&gt;
+&lt;p&gt;Prvně zkoušíme, jak se v Inkscape kreslí tužkou a vyplňuje obvod a obsah. Potom každá Pylady dostala za úkol nějaký typ dlaždice, celkově jsme zatím připravily tyhle typy dlaždic:
+wall, flag, starting square, laser, laser base, pusher, repair, hole, ground, conveyor belt 1, conveyor belt 2.&lt;/p&gt;
+&lt;p&gt;Všechny ukládáme ve vektorovém formátu SVG a navzájem si je sdílíme na Slacku, takže všechny máme k dispozici stejnou sadu dlaždic, kterou si ukládáme do složky Tiles. Nejsou to ještě konečné verze grafiky, ale už nám pomůžou orientačně rozložit mapu. Později budeme mít možnost je snadno nahradit nějakými více vychytanými s jednotnějším vzhledem.&lt;/p&gt;
+&lt;p&gt;Alternativně, protože na některých operačních systémech takto uložené soubory zlobí (vykreslují se v Tiled se špatnou velikostí), se mohou obrázky z Inkscape vyexportovat do PNG. V menu Soubor najdeme Export PNG Image a na zobrazené boční liště vybereme tlačítka Page a Export. Takto vyexportované soubory se jednoduše naimportují do Tiled dle návodu níže.&lt;/p&gt;
+&lt;p&gt;A teď hurá na druhý prográmek – &lt;strong&gt;Tiled&lt;/strong&gt;.
+Dáme si Soubor → New → New Map (Ctrl + N), kde nastavíme
+Orientace: ortogonální,
+Formát vrstvy dlaždic: CSV,
+Pořadí vykreslování dlaždic: Doprava a dolů,
+Velikost mapy – Fixed 12 x 12 dlaždic,
+Velikost dlaždice: 64 px x 64 px.
+Projekt uložíme s libovolným názvem a koncovkou &lt;a href="https://naucse.python.cz/course/pyladies/intro/json/"&gt;JSON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pokračujeme s importem našich dlaždic.
+Vpravo dole najdeme oddíl Sada dlaždic a stisknutím New Tileset pokračujeme na výběr názvu sady – dáváme „Robots“ a možnost Ze sady obrázků.
+Vpravo dole pod oddílem dlaždic klikáme na malinkou ikonu s klíčem, na popisku stojí Edit Tileset. To nám otevírá novou záložku, kde v horní liště klikneme na ikonku + s popiskem Přidání dlaždic. Najdeme adresu naší složky Tiles a označíme všechny obrázky dlaždic.
+Vracíme se do záložky s mapou a můžeme si trošku pohrát s naší první herní mapou. Z vektorové grafiky jsme získaly obrázky s průhledným pozadím a tak je můžeme pěkně vrstvit. Do spodní vrstvy se můžou dát třeba země, jáma, … Do další vrstvy další dlaždice typu zeď, posuvné pásy, lasery a podobně.
+Jednotlivé objekty je možné i libovolně otáčet.
+Náš výtvor můžeme nechat přes Soubor → Exportovat jako a nastavíme si typ JSON.&lt;/p&gt;
+&lt;p&gt;Další část lekce jsme věnovaly průzkumu mapového souboru JSON v textovém editoru.&lt;/p&gt;
+&lt;p&gt;Každý typ dlaždice má svoje ID – první má číslo 0 a je to abecedně název první dlaždice, další následují. V seznamu políček ale vidíme čísla typů dlaždic od 1, takže abecedně první typ dlaždice je v Tiled ID: 0 → v seznamu vidíme ID: 1.&lt;/p&gt;
+&lt;p&gt;Teď se můžeme podívat do organizace vrstev – v Layers máme tentokrát jenom jednu vrstvu. Každé políčko mapy má svoje souřadnice – čísla běží jako seznam z levého horního rohu mapy doprava a pak následuje další řádek.&lt;/p&gt;
+&lt;p&gt;Pokud máme komplikovanější mapu s více vrstvami a také otočenými dlaždicemi, můžeme v layers vidět více seznamů a v některých budou i veliká čísla, jako například 1610612738. To je číslo šestnáctkové soustavy. Rozluštit nám ho pomůže třeba Python přes příkaz hex(číslo).  &lt;/p&gt;
+&lt;p&gt;Máme pro první řádek mapy například políčka:&lt;/p&gt;
+&lt;p&gt;nic – dlaždice ID:1 (conveyor belt 2) – nic – ID 1 otočené doprava – nic - ID 1 otočené dolů – nic – ID 1 otočené doleva – nic - nic – nic- nic&lt;/p&gt;
+&lt;p&gt;Zápis vypadá takto&lt;/p&gt;
+&lt;p&gt;"data":[0, 2, 0, 2684354562, 0, 3221225474, 0, 1610612738, 0, 0, 0, 0 … a následují další řádky&lt;/p&gt;
+&lt;p&gt;zadáme do Pythonu:&lt;/p&gt;
+&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2684354562&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="nb"&gt;hex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'0xa0000002'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="mh"&gt;0xFFFFFFF&lt;/span&gt; &lt;span class="c1"&gt;# kouzelná formulka pro zjištění ID dlaždice&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cislo&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# kouzelná formulka pro zjištění otočení&lt;/span&gt;
+&lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;S dalšími čísly dostáváme 12 a 6.&lt;/p&gt;
+&lt;p&gt;Takže otočení doprava v tomto případě je hodnota 10, dolů 12 a doleva 6.&lt;/p&gt;
+&lt;p&gt;A to bylo tentokrát vše.&lt;/p&gt;
+&lt;p&gt;Příští lekce se bude věnovat GITu s Jirkou, máme si zopakovat lekce &lt;a href="https://naucse.python.cz/course/pyladies/sessions/git/"&gt;Správa zdrojového kódu&lt;/a&gt; a &lt;a href="https://naucse.python.cz/course/pyladies/sessions/foss/"&gt;Spolupráce a Open-Source&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Za dva týdny bude následovat další lekce s Petrem, na kterou máme za úkol náš mapový podklad, prozatím s jednou vrstvou a bez otáčení prvků, uložit ve formátu JSON, naimportovat do Pythonu a mapu vykreslit v Pygletu.&lt;/p&gt;
+&lt;p&gt;A jak na to? Chceme načíst herní plán jako slovník políček.&lt;/p&gt;
+&lt;p&gt;STAV = slovník políček
+klíč: (x, y)
+hodnota: seznam efektů # ← číslo z JSON&lt;/p&gt;
+&lt;p&gt;Nahrávaná mapa má pouze 1 vrstvu, bez otáčení dlaždic.&lt;/p&gt;&lt;/div&gt;</content></entry><entry><title>Druhý sraz, aneb pořád kreslíme</title><link href="https://roboprojekt.pyladies.cz/druhy-sraz-aneb-porad-kreslime" rel="alternate"></link><published>2018-10-13T16:13:00+02:00</published><updated>2018-10-13T16:13:00+02:00</updated><author><name>Karolina Surma</name></author><id>tag:roboprojekt.pyladies.cz,2018-10-13:/druhy-sraz-aneb-porad-kreslime</id><summary type="html">&lt;div&gt;&lt;p&gt;Kdyby se někdo zeptal, jak jedním slovem shrnu druhý sraz RoboProjektu, odpovím: "přituhuje".&lt;/p&gt;
+&lt;p&gt;Za podzimního večera jsme se opět v hojném počtu sešly (žádná to po prvním srazu nevzdala, hurááá!), tentokrát nad našimi mapami. I když jsem si myslela, že si naše výsledky budou podobné, opak byl pravdou. Na některých ze základních pojmů jsme se shodly, ostatní jsme zpracovaly každá úplně jinak.&lt;/p&gt;
+&lt;p&gt;Prvním úkolem srazu bylo tedy vytvořit společnou mind mapu naší hry. Rozhodly jsme se, že začneme "pohybem", tedy tím, co se děje na již existujícím herním plánu. Výběr plánu, robotího programu a akce před zahájením daného kola jsme prozatím z uvažování vynechaly. Centrální postavou naší mapy se stal robot, doprovázen neméně důležitým herním políčkem. Postupně jsme dokreslovaly další objekty a souvislosti mezi nimi. Zhruba po hodině jsme se shodly na finální podobě mapy. Než jsme otevřely šampaňské, Petr nás přivolal zpátky na zem s tím, že teď naše dílo můžeme zahodit.&lt;/p&gt;
+&lt;p&gt;Naštěstí ne úplně. Python je objektový jazyk, takže naše "lidská" mapa se musí postupně převést na pojmy jemu známé. Další díl projektové skladačky vyžadoval vytvoření &lt;a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language"&gt;UML diagramu&lt;/a&gt;. Na základě poznatků, získaných díky mapě, jsme se pustily do modelování tříd budoucího kódu. S každou odpovědí na otázku, co robot &lt;em&gt;má&lt;/em&gt;, a co &lt;em&gt;umí&lt;/em&gt;, se rýsovaly výraznější rozdíly mezi atributy a metodami. Pro každý atribut se následně definoval jeho datový typ, a pro každou metodu argumenty, které vezme, spolu s výsledkem, který vrátí. Nejsme ještě u konce: v rámci domácího úkolu se pokusíme diagramy dokončit a popřemýšlet mj., jak naprogramovat políčkům zdi.&lt;/p&gt;
+&lt;p&gt;Uff, a to jsme ještě nezaply počítače! Pro většinu z nás, ne-li všechny, je to první kontakt s tímto stylem uvažování o složitém a vcelku velkém problému.&lt;/p&gt;
+&lt;p&gt;Pro odlehčení jsme chvilku debatovaly nad podobou, jakou dáme projektovému blogu. Na Petrovo doporučení jsme se rozhodly pro GitHub, kam posíláme příspěvky pomocí gitu. Myšlenka na git v nás sice zpočátku nevzbudila velké nadšení, ale všechny víme, že praxí se člověk učí nejlépe.&lt;/p&gt;
+&lt;p&gt;Petr nám zdejší stránky vytvořil a připravil pracovní prostředí, za což mu zde jménem účastnic chci poděkovat :).&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div&gt;&lt;p&gt;Kdyby se někdo zeptal, jak jedním slovem shrnu druhý sraz RoboProjektu, odpovím: "přituhuje".&lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;img alt="mind mapa" src="./images/mindmap.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/figure&gt;
+&lt;p&gt;Za podzimního večera jsme se opět v hojném počtu sešly (žádná to po prvním srazu nevzdala, hurááá!), tentokrát nad našimi mapami. I když jsem si myslela, že si naše výsledky budou podobné, opak byl pravdou. Na některých ze základních pojmů jsme se shodly, ostatní jsme zpracovaly každá úplně jinak.&lt;/p&gt;
+&lt;p&gt;Prvním úkolem srazu bylo tedy vytvořit společnou mind mapu naší hry. Rozhodly jsme se, že začneme "pohybem", tedy tím, co se děje na již existujícím herním plánu. Výběr plánu, robotího programu a akce před zahájením daného kola jsme prozatím z uvažování vynechaly. Centrální postavou naší mapy se stal robot, doprovázen neméně důležitým herním políčkem. Postupně jsme dokreslovaly další objekty a souvislosti mezi nimi. Zhruba po hodině jsme se shodly na finální podobě mapy. Než jsme otevřely šampaňské, Petr nás přivolal zpátky na zem s tím, že teď naše dílo můžeme zahodit.&lt;/p&gt;
+&lt;p&gt;Naštěstí ne úplně. Python je objektový jazyk, takže naše "lidská" mapa se musí postupně převést na pojmy jemu známé. Další díl projektové skladačky vyžadoval vytvoření &lt;a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language"&gt;UML diagramu&lt;/a&gt;. Na základě poznatků, získaných díky mapě, jsme se pustily do modelování tříd budoucího kódu. S každou odpovědí na otázku, co robot &lt;em&gt;má&lt;/em&gt;, a co &lt;em&gt;umí&lt;/em&gt;, se rýsovaly výraznější rozdíly mezi atributy a metodami. Pro každý atribut se následně definoval jeho datový typ, a pro každou metodu argumenty, které vezme, spolu s výsledkem, který vrátí. Nejsme ještě u konce: v rámci domácího úkolu se pokusíme diagramy dokončit a popřemýšlet mj., jak naprogramovat políčkům zdi.&lt;/p&gt;
+&lt;p&gt;Uff, a to jsme ještě nezaply počítače! Pro většinu z nás, ne-li všechny, je to první kontakt s tímto stylem uvažování o složitém a vcelku velkém problému.&lt;/p&gt;
+&lt;p&gt;Pro odlehčení jsme chvilku debatovaly nad podobou, jakou dáme projektovému blogu. Na Petrovo doporučení jsme se rozhodly pro GitHub, kam posíláme příspěvky pomocí gitu. Myšlenka na git v nás sice zpočátku nevzbudila velké nadšení, ale všechny víme, že praxí se člověk učí nejlépe.&lt;/p&gt;
+&lt;p&gt;Petr nám zdejší stránky vytvořil a připravil pracovní prostředí, za což mu zde jménem účastnic chci poděkovat :).&lt;/p&gt;&lt;/div&gt;</content></entry><entry><title>První sraz</title><link href="https://roboprojekt.pyladies.cz/prvni-sraz" rel="alternate"></link><published>2018-10-10T09:58:00+02:00</published><updated>2018-10-10T09:58:00+02:00</updated><author><name>Anežka Müller</name></author><id>tag:roboprojekt.pyladies.cz,2018-10-10:/prvni-sraz</id><summary type="html">&lt;div&gt;&lt;p&gt;Letošní podzimní semestr se pro brněnské PyLadies nese částečně v duchu experimentů.
+Krom klasického kurzu pro začátečníky se totiž pod vedením Petra Viktorina rozběhl nový formát tohoto kurzu a také novinka pro pokročilejší, kurz zaměřený na realizaci praktického projektu a týmovou spolupráci. &lt;/p&gt;
+&lt;p&gt;V rámci kurzu budeme pod Petrovým dohledem v devítičlenné skupině převádět do počítačové podoby deskovou hru RoboRally.
+Včetně dokumentace, testování, všeho potřebného.
+Kurz nemá předpřipravené materiály, vše bude na nás.
+Jak Petr krásně na úvod řekl, budeme se učit dělat software tak, jak by se dělal, kdyby na to byl dostatek času :).
+Protože mi přesně něco takového, jako je praktický projekt, po absolvování začátečnického kurzu chybělo, rozhodla jsem se to zkusit.&lt;/p&gt;
+&lt;p&gt;Jak jsem již zmínila, kurz nemá žádné materiály, padlo tedy rozhodnutí psát o jeho průběhu blog. &lt;/p&gt;
+&lt;p&gt;Složení našeho pracovního týmu je čistě dámské a všechny z nás jsou již s PyLadies nějak spojeny, ať už jako absolventky kurzů, nebo organizátorky. Sešly jsme se poprvé tento týden v prostorách společnosti Kinali, která se stala sponzorem tohoto kurzu a nabídla nám svoje prostory. Vděčíme za to Karolině, organizátorce začátečnického kurzu a zároveň účastnici tohoto projektu, která pro Kinali pracuje jako testerka. Děkujeme :) &lt;/p&gt;
+&lt;p&gt;První setkání bylo primárně seznamovací. A to jak v rámci týmu, tak s náplní samotného kurzu (nebo spíše projektu) a toho, co nás čeká.
+Proběhlo představovací kolečko, kde jsme mluvily také o tom, co nás do kurzu přivedlo. 
+Většina z nás do toho jde s podobnou motivací - zdokonalit se v tom, co známe ze začátečnických kurzů, naučit se to více prakticky využívat, spolupracovat na vývoji, mít nějaký projekt, který budeme moci prezentovat.
+A to nejen my, jednotlivé členky týmu, ale také celkově PyLadies, když se například účastníme nějaké konference nebo prezentace - budeme moci ukázat nějaký reálný výsledek práce absolventek kurzu. &lt;/p&gt;
+&lt;p&gt;Po vzájemném představení přišla už praktičtější část setkání, vyzkoušely jsme si nakreslit mind mapu na příkladu šachů, abychom ji pak doma vytvořily pro RoboRally.
+Poté přišla na řadu samotná hra. Patřila jsem k té části týmu, co ji nikdy předtím nehrála, takže to bylo rozhodně potřeba :)
+Stihly jsme několik kol, abychom si trochu prošly pravidla a ukázaly, jak hra funguje.
+Z časových důvodů se nám však hru nepodařilo dohrát.
+Jako základ pro tvorbu myšlenkové mapy to ale určitě spolu s psanými pravidly postačí.&lt;/p&gt;
+&lt;p&gt;Příště se tedy sejdeme nad našimi mapami a uvidíme, co bude dál.
+V mezičase nám pro domluvu a týmovou komunikaci bude sloužit Slack. &lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div&gt;&lt;p&gt;Letošní podzimní semestr se pro brněnské PyLadies nese částečně v duchu experimentů.
+Krom klasického kurzu pro začátečníky se totiž pod vedením Petra Viktorina rozběhl nový formát tohoto kurzu a také novinka pro pokročilejší, kurz zaměřený na realizaci praktického projektu a týmovou spolupráci. &lt;/p&gt;
+&lt;p&gt;V rámci kurzu budeme pod Petrovým dohledem v devítičlenné skupině převádět do počítačové podoby deskovou hru RoboRally.
+Včetně dokumentace, testování, všeho potřebného.
+Kurz nemá předpřipravené materiály, vše bude na nás.
+Jak Petr krásně na úvod řekl, budeme se učit dělat software tak, jak by se dělal, kdyby na to byl dostatek času :).
+Protože mi přesně něco takového, jako je praktický projekt, po absolvování začátečnického kurzu chybělo, rozhodla jsem se to zkusit.&lt;/p&gt;
+&lt;p&gt;Jak jsem již zmínila, kurz nemá žádné materiály, padlo tedy rozhodnutí psát o jeho průběhu blog. &lt;/p&gt;
+&lt;p&gt;Složení našeho pracovního týmu je čistě dámské a všechny z nás jsou již s PyLadies nějak spojeny, ať už jako absolventky kurzů, nebo organizátorky. Sešly jsme se poprvé tento týden v prostorách společnosti Kinali, která se stala sponzorem tohoto kurzu a nabídla nám svoje prostory. Vděčíme za to Karolině, organizátorce začátečnického kurzu a zároveň účastnici tohoto projektu, která pro Kinali pracuje jako testerka. Děkujeme :) &lt;/p&gt;
+&lt;p&gt;První setkání bylo primárně seznamovací. A to jak v rámci týmu, tak s náplní samotného kurzu (nebo spíše projektu) a toho, co nás čeká.
+Proběhlo představovací kolečko, kde jsme mluvily také o tom, co nás do kurzu přivedlo. 
+Většina z nás do toho jde s podobnou motivací - zdokonalit se v tom, co známe ze začátečnických kurzů, naučit se to více prakticky využívat, spolupracovat na vývoji, mít nějaký projekt, který budeme moci prezentovat.
+A to nejen my, jednotlivé členky týmu, ale také celkově PyLadies, když se například účastníme nějaké konference nebo prezentace - budeme moci ukázat nějaký reálný výsledek práce absolventek kurzu. &lt;/p&gt;
+&lt;figure class="figure"&gt;&lt;a href="./images/hrajeme.jpg" target="_blank" title="hrajeme"&gt;&lt;img alt="hrajeme" src="https://roboprojekt.pyladies.cz/images/thumbnails/hrajeme.jpg" class="figure-img img-fluid img-rounded"&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;Po vzájemném představení přišla už praktičtější část setkání, vyzkoušely jsme si nakreslit mind mapu na příkladu šachů, abychom ji pak doma vytvořily pro RoboRally.
+Poté přišla na řadu samotná hra. Patřila jsem k té části týmu, co ji nikdy předtím nehrála, takže to bylo rozhodně potřeba :)
+Stihly jsme několik kol, abychom si trochu prošly pravidla a ukázaly, jak hra funguje.
+Z časových důvodů se nám však hru nepodařilo dohrát.
+Jako základ pro tvorbu myšlenkové mapy to ale určitě spolu s psanými pravidly postačí.&lt;/p&gt;
+&lt;p&gt;Příště se tedy sejdeme nad našimi mapami a uvidíme, co bude dál.
+V mezičase nám pro domluvu a týmovou komunikaci bude sloužit Slack. &lt;/p&gt;&lt;/div&gt;</content></entry></feed>
